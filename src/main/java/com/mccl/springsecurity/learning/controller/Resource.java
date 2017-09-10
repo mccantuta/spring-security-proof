@@ -8,6 +8,11 @@ public class Resource {
 
     @GetMapping("/resource")
     public String resource() {
-        return "resource";
+        return "returning resource";
+    }
+
+    @GetMapping("/public")
+    public String publicMethod() {
+        return "returning public";
     }
 }
