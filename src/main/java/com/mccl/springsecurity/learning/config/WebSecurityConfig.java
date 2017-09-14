@@ -16,7 +16,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/public/**").anonymous()
                 .antMatchers("/resource").hasRole("USER_RESOURCE")
-                .anyRequest().authenticated().and().formLogin().and().logout();
+                .anyRequest().authenticated().and()
+                .formLogin().loginPage("/login.html").successForwardUrl("/resource").permitAll().and()
+                .csrf().disable();
     }
 
     @Bean
